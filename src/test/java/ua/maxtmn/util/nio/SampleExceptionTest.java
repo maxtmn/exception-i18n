@@ -1,6 +1,7 @@
 package ua.maxtmn.util.nio;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
@@ -19,9 +20,9 @@ public class SampleExceptionTest {
 	
 	@Test
 	public void testShortMessage() {
-		String code = target.shortMessage();
-		assertNotNull(code);
-		assertEquals("very useful information about error cause", code);
+		String mess = target.shortMessage();
+		assertNotNull(mess);
+		assertEquals("very useful information about error cause", mess);
 	}
 	
 	@Test(expected = Exception.class)

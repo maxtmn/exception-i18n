@@ -1,7 +1,5 @@
 package ua.maxtmn.util.nio;
 
-import java.text.MessageFormat;
-
 import ua.maxtmn.util.CompilationErrors;
 import ua.maxtmn.util.lang.AbstractRichException;
 
@@ -14,11 +12,6 @@ public class SampleException extends AbstractRichException {
 
 	public SampleException() {
 		this.codeable = CompilationErrors.SAMPLE;
-		this.mesageFormat = new MessageFormat(this.codeable.messagePattern());
-	}
-	
-	public String shortMessage() {
-		return mesageFormat.format(new Object[] {});
 	}
 
 }

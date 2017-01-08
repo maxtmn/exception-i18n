@@ -1,6 +1,8 @@
 package ua.maxtmn.util.lang;
 
 import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import ua.maxtmn.util.ErrorCodeable;
 
@@ -20,10 +22,17 @@ public abstract class AbstractRichException extends Exception implements
 
 	protected ErrorCodeable codeable;
 
-	protected MessageFormat mesageFormat;
+	protected List<String> messageArgs = new ArrayList<>();
 
+	@Override
 	public String code() {
 		return null == codeable ? "NOTDEF" : codeable.code();
+	}
+
+	@Override
+	public String shortMessage() {
+		return null == codeable ? "NOMESS" : new MessageFormat(
+				this.codeable.messagePattern()).format(messageArgs.toArray());
 	}
 
 	public String getMessage() {
